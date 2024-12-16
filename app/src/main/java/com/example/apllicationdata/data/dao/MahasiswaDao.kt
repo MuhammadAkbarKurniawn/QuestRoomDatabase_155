@@ -14,7 +14,7 @@ interface MahasiswaDao {
     @Insert
     suspend fun insertMahasiswa(mahasiswa: Mahasiswa)
 
-    @Query("SELECT * From mahasiswa ORDER BY ASC")
+    @Query("SELECT * From mahasiswa ORDER BY nama ASC")
     fun getAllMahasiswa(): Flow<List<Mahasiswa>>
 
     @Query("SELECT * From mahasiswa WHERE nim = :nim")
