@@ -39,7 +39,7 @@ object DestinasiInsert : AlamatNavigasi {
     override val route: String = "Insert_mhs"
 }
 @Composable
-fun insertMhsView(
+fun InsertMhsView(
     onBack: () -> Unit,
     onNavigate: () -> Unit,
     modifier: Modifier = Modifier,
@@ -80,7 +80,7 @@ fun insertMhsView(
             // isi body
             InsertBodyMhs(
                 uiState = uiState,
-                onValueChange = {updateEvent ->
+                onValueChange = { updateEvent ->
                     viewModel.updateState(updateEvent) // update state diViewModel
                 },
                 onClick = {
@@ -195,7 +195,7 @@ fun FormMahasiswa(
             onValueChange = {
                 onValueChange(mahasiswaEvent.copy(alamat = it))
             },
-            label = { Text("ALamat") },
+            label = { Text("Alamat") },
             isError = errorState.alamat != null,
             placeholder = { Text("Masukkan Alamat") }
         )
@@ -206,30 +206,25 @@ fun FormMahasiswa(
 
         Spacer(modifier = Modifier.height(16.dp))
         Text(text = "Kelas")
-        Row (
-            modifier = Modifier.fillMaxWidth()
-        ){
-            kelas.forEach{ kelas ->
-                Row (
+        Row {
+            kelas.forEach { kelas ->
+                Row(
                     verticalAlignment = Alignment.CenterVertically,
                     horizontalArrangement = Arrangement.Start
-                ){
+                ) {
                     RadioButton(
                         selected = mahasiswaEvent.kelas == kelas,
                         onClick = {
                             onValueChange(mahasiswaEvent.copy(kelas = kelas))
                         },
-                    )
+
+                        )
                     Text(
                         text = kelas,
                     )
                 }
             }
         }
-        Text(
-            text = errorState.kelas ?: "",
-            color = Color.Red
-        )
 
         OutlinedTextField(
             modifier = Modifier.fillMaxWidth(),

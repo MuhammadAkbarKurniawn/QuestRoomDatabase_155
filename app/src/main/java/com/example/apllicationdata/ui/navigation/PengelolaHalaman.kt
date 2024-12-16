@@ -7,7 +7,8 @@ import androidx.navigation.compose.NavHost
 import androidx.navigation.compose.composable
 import androidx.navigation.compose.rememberNavController
 import com.example.apllicationdata.ui.view.mahasiswa.DestinasiInsert
-import com.example.apllicationdata.ui.view.mahasiswa.insertMhsView
+import com.example.apllicationdata.ui.view.mahasiswa.InsertMhsView
+import com.example.apllicationdata.ui.view.mahasiswa.InsertMhsView
 
 @Composable
 fun PengelolaHalaman(
@@ -18,7 +19,7 @@ fun PengelolaHalaman(
         composable(
             route = DestinasiInsert.route
         ){
-            insertMhsView(
+            InsertMhsView(
                 onBack = {}, onNavigate = {}
             )
         }
